@@ -51,4 +51,5 @@ def clean_tweet(tweet):
     cleaned_tweet = demojify(remove_punc(
         make_alphanumeric(remove_rt_prefix(remove_url(tweet))))).lower()
     cleaned_tweet = re.sub(r" +", " ", cleaned_tweet).strip()
+    cleaned_tweet = re.sub(r"([^\x00-\x7F])+"," ", cleaned_tweet)
     return cleaned_tweet
