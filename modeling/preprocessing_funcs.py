@@ -2,6 +2,7 @@
 Functions for preprocessing Tweets
 '''
 
+import emoji
 import re
 import string
 
@@ -37,6 +38,23 @@ def remove_punc(text):
     return clean_text
 
 
+### Dealing with Emojis ###
+
+def get_emojis(text):
+    emoji_list = [char for char in text if char in emoji.UNICODE_EMOJI]
+    return emoji_list
+
+
+def emoji_as_words(emoji_list):
+    emoji_literal = [emoji.demojize(em, delimiters=('', '')) for em in emoji_list]
+    return emoji_literal
+
+
+def emojize(emoji_literal_list):
+    emojified = [emoji.emojize(':' + em + ':') for em in emoji_literal_list]
+    return emojified
+
+
 def demojify(text):
     regrex_pattern = re.compile(pattern="["
                                 u"\U0001F600-\U0001F64F"  # emoticons
@@ -44,8 +62,11 @@ def demojify(text):
                                 u"\U0001F680-\U0001F6FF"  # transport & map symbols
                                 u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
                                 "]+", flags=re.UNICODE)
-    return regrex_pattern.sub(r'', text)
+    clean_text = regrex_pattern.sub(r'', text)
+    return clean_text
 
+
+### Compiled cleaning function ###
 
 def clean_tweet(tweet):
     cleaned_tweet = demojify(remove_punc(
