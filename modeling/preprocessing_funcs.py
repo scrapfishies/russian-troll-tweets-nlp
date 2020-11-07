@@ -145,6 +145,6 @@ hashtag_dict = {'realdonaldtrump': 'real donald trump',
                 'djt': 'donald j trump',
                 'hillaryrottenclinton': 'hillary rotten clinton',
                 'whereshillary': 'wheres hillary',
-                'dncleak', 'dnc leak',
+                'dncleak': 'dnc leak',
                 'johnpodesta': 'john podesta'
                 }
