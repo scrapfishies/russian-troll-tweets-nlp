@@ -61,7 +61,12 @@ As an online society, we need to continue to develop AI that can detect misinfor
   * Jupyter Notebook
   * Pandas
   * NumPy
-  
+
+* Machine Learning
+  * pyLDAvis
+  * Latent Dirichlet Allocation (LDA)
+  * Principal Component Analysis (PCA)
+
 * Natural Language Processing
   * SpaCy
   * NLTK
